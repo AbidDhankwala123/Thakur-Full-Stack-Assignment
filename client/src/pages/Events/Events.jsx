@@ -24,12 +24,15 @@ const Events = () => {
         month: "long"
     });
 
+    if (!events) {
+        return <div>Loading...</div>
+    }
     return (
         <div className={styles.container}>
             <h1 className={styles.header}>Upcoming Events</h1>
             <div className={styles.list_events}>
 
-                {events && events.map((event, idx) => {
+                {events.map((event, idx) => {
                     return (
                         <div className={styles.event} key={idx}>
                             <div>
