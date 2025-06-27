@@ -10,7 +10,7 @@ const Events = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL_FOR_EVENT}/events`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL_FOR_EVENT}events`)
             .then(res => {
                 console.log(res);
                 setEvents(res.data.events);

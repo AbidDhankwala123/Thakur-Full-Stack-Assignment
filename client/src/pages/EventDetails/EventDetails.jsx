@@ -9,7 +9,7 @@ const EventDetails = () => {
     const [event, setEvent] = useState("");
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL_FOR_EVENT}/event/${eventId}`)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL_FOR_EVENT}event/${eventId}`)
             .then(res => {
                 console.log(res);
                 setEvent(res.data);
