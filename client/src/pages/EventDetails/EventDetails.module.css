@@ -1,0 +1,40 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.event_header {
+    height: 20vh;
+    width: 65vw;
+    box-shadow: 0px 4px 23px 2px rgba(0, 0, 0, 0.10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    font-family: "Roboto", sans-serif;
+    color: red;
+}
+
+.event_details {
+    height: 60vh;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0px 4px 23px 2px rgba(0, 0, 0, 0.10);
+    padding-left: 2rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.event_details>div {
+    padding-left: 1rem;
+}
+
+li>b {
+    margin-left: 10px;
+}
