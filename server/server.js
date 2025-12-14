@@ -16,6 +16,14 @@ app.use(cors({
     credentials: true
 }));
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+        service: "Thakur Full Stack Assignment",
+        status: "ACTIVE",
+        time: new Date()
+    })
+})
+
 app.use("/", require("./routes/eventRoutes"));
 
 //Handling Error Midddleware
