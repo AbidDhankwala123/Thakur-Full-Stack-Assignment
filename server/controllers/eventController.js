@@ -1,7 +1,7 @@
 const Event = require("../models/events");
 const mongoose = require("mongoose");
 const eventsData = require("../data/eventsData");
-
+const AppError = require("../utils/AppError")
 
 const getAllEvents = async (req, res, next) => {
     try {
@@ -20,8 +20,7 @@ const getAllEvents = async (req, res, next) => {
 
 
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: error.message })
+        next(error);
     }
 }
 
@@ -30,21 +29,13 @@ const getEventById = async (req, res, next) => {
         const { eventId } = req.params;
 
         if (!mongoose.Types.ObjectId.isValid(eventId)) {
-            return res.status(400).json({
-                status: "error",
-                message: "Invalid event ID format",
-            });
-
+            return next(new AppError("Invalid ID format", 400));
         }
 
         const event = await Event.findById(eventId);
 
         if (!event) {
-            return res.status(404).json({
-                status: "error",
-                message: "Event not found",
-            });
-
+            return next(new AppError("Event not found", 404));
         }
 
         const formattedEventDate = strDate => {
@@ -64,9 +55,7 @@ const getEventById = async (req, res, next) => {
             speakers: event.speakers
         })
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: error.message })
-
+        next(error);
     }
 }
 
